@@ -182,16 +182,14 @@ ul li::before {
         padding: 45px 16px;
     }
 }
-/* =========================
-   Navbar
-========================= */
+/* Navbar – Stable & Minimal */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(11, 11, 15, 0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(11, 11, 15, 0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav-container {
@@ -204,40 +202,27 @@ ul li::before {
 }
 
 .logo {
+    font-size: 1rem;
     font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--text-main);
+    letter-spacing: 0.3px;
 }
 
 .nav-links {
     display: flex;
-    gap: 18px;
+    gap: 22px;
 }
 
 .nav-links a {
-    color: var(--text-muted);
     font-size: 0.95rem;
-    position: relative;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background-color: var(--accent);
-    transition: var(--transition);
+    color: var(--text-muted);
+    padding: 4px 0; /* prevents vertical shift */
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
     color: var(--text-main);
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
 
 /* Mobile */
 @media (max-width: 700px) {
