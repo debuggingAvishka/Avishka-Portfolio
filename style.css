@@ -1,0 +1,258 @@
+/* =========================
+   Global Reset & Variables
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-main: #0b0b0f;
+    --bg-card: #14141c;
+    --bg-hover: #1c1c27;
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+
+    --accent: #e11d48;        /* Reddish accent */
+    --accent-soft: rgba(225, 29, 72, 0.15);
+
+    --radius: 14px;
+    --transition: 0.25s ease;
+}
+
+/* =========================
+   Base Styles
+========================= */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    opacity: 0.85;
+}
+
+/* =========================
+   Layout
+========================= */
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+}
+
+/* =========================
+   Hero Section
+========================= */
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: radial-gradient(
+        circle at top,
+        rgba(225, 29, 72, 0.15),
+        transparent 60%
+    );
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.hero-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-links a {
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    background-color: var(--accent-soft);
+    font-weight: 500;
+}
+
+/* =========================
+   Cards & Grid
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 22px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--accent-soft);
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.card span {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* =========================
+   Lists
+========================= */
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding-left: 18px;
+    position: relative;
+    color: var(--text-muted);
+}
+
+ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-muted);
+}
+
+.footer a {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* =========================
+   Responsive Tweaks
+========================= */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .section {
+        padding: 45px 16px;
+    }
+}
+/* =========================
+   Navbar
+========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(11, 11, 15, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+    }
+}
+.card a {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
